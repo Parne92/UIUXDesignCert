@@ -1,0 +1,302 @@
+/* Typography for Portfolio */
+
+/* Base font settings */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa; /* Light grey background */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Georgia', serif;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #007BFF; /* Blue color for main heading */
+}
+
+h2 {
+    font-size: 2rem;
+    color: #0056b3; /* Darker blue for subheadings */
+    text-align: center; /* Center h2 in each section */
+}
+
+h3 {
+    font-size: 1.75rem;
+    color: #f8f9fa
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 1.5rem;
+}
+
+/* Links */
+a {
+    color: #007BFF; /* Blue color for links */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Add transition for color */
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Blockquotes */
+blockquote {
+    font-style: italic;
+    color: #555;
+    border-left: 4px solid #ddd;
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+}
+
+/* Header */
+header {
+    background-color: #007BFF; /* Blue background for header */
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    grid-row: 1;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    position: relative;
+    display: inline-block;
+    color: white; /* White color for nav links */
+    transition: color 0.3s ease; /* Add transition for color */
+}
+
+nav ul li a::after {
+    content: attr(data-tooltip); /* Use the data-tooltip attribute for the tooltip text */
+    position: absolute;
+    bottom: 125%; /* Position the tooltip above the link */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+nav ul li a:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+nav ul li a:hover {
+    color: #e9ecef; /* Light grey on hover */
+}
+
+/* Main content */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    grid-row: 2;
+}
+
+section {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section#about {
+    background-color: #e9ecef; /* Light grey background for about section */
+}
+
+section#projects {
+    background-color: #f8f9fa; /* Light grey background for projects section */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.project {
+    flex: 1 1 calc(33.333% - 2rem); /* Adjust the width of each project item */
+    background-color: #007BFF;
+    color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    justify-content: center; /* Center the project thumbnails */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Contact Section */
+section#contact {
+    background-color: #e9ecef; /* Light grey background for contact section */
+}
+
+form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    gap: 1rem;
+}
+
+form label {
+    flex: 1 1 100%;
+}
+
+form input, form textarea {
+    flex: 1 1 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    flex: 1 1 100%;
+    background-color: #007BFF; /* Blue background for buttons */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add transition for background color */
+}
+
+form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer */
+footer {
+    background-color: #343a40; /* Dark grey background for footer */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    grid-row: 3;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablet */
+@media (max-width: 768px) {
+    header, nav ul, main, section, footer {
+        padding: 1rem;
+    }
+
+    .project {
+        flex: 1 1 calc(50% - 1rem); /* Adjust the width of each project item for tablets */
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    header, nav ul, main, section, footer {
+        padding: 0.5rem;
+    }
+
+    .project {
+        flex: 1 1 100%; /* Adjust the width of each project item for mobile */
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    nav ul li a {
+        display: block;
+    }
+}
